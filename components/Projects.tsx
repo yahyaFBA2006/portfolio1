@@ -3,16 +3,23 @@ interface ProjectProps {
   title: string;
   description: string;
   tags: string[];
-  imageUrl: string;
+  image: string;
 }
 import React, { useRef } from 'react'
 import {projectsData } from '@/lib/data'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useScroll } from 'framer-motion'
+
+
+const mutableProjectsData = projectsData.map((project) => ({
+  ...project,
+  tags: [...project.tags], // Convert to mutable array
+}));
+
 const Projects = () => {
 
-    function Project ({title,description,tags,imageUrl,} : ProjectProps)   
+    function Project ({title,description,tags,image,} : ProjectProps)   
     {
       const ref =useRef<HTMLElement>(null);
 const {scrollYProgress} = useScroll ({
@@ -34,7 +41,7 @@ return <section id='Projects'  className="scroll-m-64">
 <p className='text-gray-700 font-semibold text-[16px] w-[300px]'>
     {description}
 </p>
-<img src={imageUrl}  className='w-[130px] h-[100px] rounded-t-lg group-hover:-translate-x-28  transition duration-500 sm:block hidden' />
+<img src={image}  className='w-[130px] h-[100px] rounded-t-lg group-hover:-translate-x-28  transition duration-500 sm:block hidden' />
 </div>
 </div>
 <ul className='  flex flex-row '>
@@ -59,7 +66,7 @@ return <section id='Projects'  className="scroll-m-64">
 </p>
 
 
-<img src={imageUrl}  className='w-[100px] h-[80px]  relative justify-center ml-[114px] mt-6 mb-6  focuse:scale-150 group-hover:scale-150 transition duration-300n ' />
+<img src={image}  className='w-[100px] h-[80px]  relative justify-center ml-[114px] mt-6 mb-6  focuse:scale-150 group-hover:scale-150 transition duration-300n ' />
 
 <ul className='  flex flex-row gap-2  justify-center pb-4'>
     {tags.map((name) =>(
@@ -84,11 +91,9 @@ return <section id='Projects'  className="scroll-m-64">
 My Projects
 </h1>
 <div>
-{projectsData.map((project, index) => (
-    <>
-    <Project {...project}/>
-    </>
-))}
+  {mutableProjectsData.map((project, index) => (
+    <Project key={index} {...project} />
+  ))}
 </div>
 </section>
   )
