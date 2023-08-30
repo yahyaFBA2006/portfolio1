@@ -67,18 +67,18 @@ animate ={{x:-80, opacity:1, transition : {duration:1 , deplay:0.5}}}
 
 
 <div className='pt-28 flex sm:flex-row flex-col gap-2 sm:w-[600px] w-[200px]  '>
-<Link href="#contact" className=' group bg-gray-900 text-white text-[16px]  font-bold px-3 py-3 flex items-center gap-2 rounded-full cursor-pointer outline-none focus:scale-110 hover:scale-110 hover:bg-pinky-100 transition '>
+<a href="mailto:yahyamahdi4242@gmail.com" className=' group bg-gray-900 text-white text-[16px]  font-bold px-3 py-3 flex items-center gap-2 rounded-full cursor-pointer outline-none focus:scale-110 hover:scale-110 hover:bg-pinky-100 transition '>
 Contact me Here <CgArrowRight className=" group-hover:translate-x-2"/>
-</Link>
+</a>
 
 <a className=' group bg-slate-200 text-[16px] font-bold  px-3 py-3 flex  gap-2 rounded-full items-center cursor-pointer outline-none focus:scale-110 hover:scale-110 hover:bg-pinky-100 transition'>
   Download CV <FaDownload className=" group-hover:translate-y-1"/>
 </a>
 <div className='flex gap-3'>
-<a className='bg-rose-200 text-[16px] font-bold  px-4 py-4 flex  gap-2 rounded-full items-center sm:block w-[50px] cursor-pointer outline-none focus:scale-150 hover:scale-150 hover:bg-pinky-100 transition'>
+<a href='https://instagram.com/y_mahdi__yahya?igshid=MmU2YjMzNjRlOQ==' className='bg-rose-200 text-[16px] font-bold  px-4 py-4 flex  gap-2 rounded-full items-center sm:block w-[50px] cursor-pointer outline-none focus:scale-150 hover:scale-150 hover:bg-pinky-100 transition'>
 <FaInstagram/>
 </a>
-<a className='bg-teal-200 text-[16px] font-bold  px-4 py-4 flex  gap-2 rounded-full items-center sm:block w-[50px] cursor-pointer outline-none focus:scale-150 hover:scale-150 hover:bg-pinky-100 transition'>
+<a  href='https://github.com/yahyaFBA2006/portfolio1/tree/main' className='bg-teal-200 text-[16px] font-bold  px-4 py-4 flex  gap-2 rounded-full items-center sm:block w-[50px] cursor-pointer outline-none focus:scale-150 hover:scale-150 hover:bg-pinky-100 transition'>
 < FaGithubSquare/>
 </a>
 </div>

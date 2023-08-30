@@ -65,21 +65,21 @@ export const projectsData = [
     description:
       "I created this website to help Bac-Exame'students, this website contain free courses, excercises, exames ...  .",
     tags: ["React", "farmer", "Tailwind", "javaScript"],
-    image: p1,
+    imageUrl: p1,
   },
   {
     title: "Payment Methods",
     description:
       "I worked as a fron-end developer to build this website that show you the best and the new payment methods in the world.",
     tags: ["Vite", "javaScript", "Farmer", "Tailwind"],
-    image: p3,
+    imageUrl: p3,
   },
   {
     title: "Portfolio",
     description:
       "This is my portfolio ,.",
     tags: ["Next.js", "TypeScript", "Tailwind", "Framer"],
-    image: p2,
+    imageUrl: p2,
   },
 ] as const;
 

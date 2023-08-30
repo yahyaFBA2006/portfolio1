@@ -1,103 +1,71 @@
-'use client'
-interface ProjectProps {
-  title: string;
-  description: string;
-  tags: string[];
-  image: string;
-}
-import React, { useRef } from 'react'
-import {projectsData } from '@/lib/data'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { useScroll } from 'framer-motion'
+"use client";
 
+import { useRef } from "react";
+import { projectsData } from "@/lib/data";
+import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-const mutableProjectsData = projectsData.map((project) => ({
-  ...project,
-  tags: [...project.tags],
-  image: project.image.src, // Reference the src property
-}));
+type ProjectProps = (typeof projectsData)[number];
 
-const Projects = () => {
-
-    function Project ({title,description,tags,image,} : ProjectProps)   
-    {
-      const ref =useRef<HTMLElement>(null);
-const {scrollYProgress} = useScroll ({
-target : ref,
-offset:["0 1", "1.33 1" ]
-});
-
-
-
-return <section id='Projects'  className="scroll-m-64">
- <section   className='bg-gray-100 sm:w-[700px] sm:[350px] border border-black/5 overflow-hidden justify-center mr-2 mt-2  pl-4 pt-4 focuse:scale-110 hover:scale-110 rounded-xl  group transition duration-700 mb-10 sm:block hidden'>     
-<div className=''>
-<h1 className='text-gray-950 mb-4 font-bold text-[20px] '>
-    {title}
-</h1>
-
-
-<div className='flex justify-between'>
-<p className='text-gray-700 font-semibold text-[16px] w-[300px]'>
-    {description}
-</p>
-<img src={image}  className='w-[130px] h-[100px] rounded-t-lg group-hover:-translate-x-28  transition duration-500 sm:block hidden' />
-</div>
-</div>
-<ul className='  flex flex-row '>
-    {tags.map((tag) =>(
-        <li key={tag}  className='text-white  font-bold text-[20px] bg-black/[0.7] rounded-full  p-2 m-2 '>
-          <a href={`#@{tag.id}`}>
-            {tag}
-          </a>
-            </li>
-                ))}
-</ul>
-        </section>
-
-
-<motion.section ref={ref}  style={{scale:scrollYProgress, opacity:scrollYProgress}} className='sm:hidden bg-slate-300 justify-center mb-8 focuse:scale-110 hover:scale-110 rounded-2xl  group transition duration-700 w-[360px]  '>
-
-<h1 className='text-gray-950 mb-4 font-bold text-[20px] justify-center text-center pt-4 '>
-    {title}
-</h1>
-<p className='text-gray-700 font-semibold text-[16px] w-[300px] text-center justify-center ml-6'>
-    {description}
-</p>
-
-
-<img src={image} alt={title} className='w-[130px] h-[100px] rounded-t-lg group-hover:-translate-x-28  transition duration-500 sm:block hidden' />
-
-<ul className='  flex flex-row gap-2  justify-center pb-4'>
-    {tags.map((name) =>(
-        <li key={name}  className=' bg-slate-900 p-2 rounded-full text-white font-bold justify-center text-center'>
-          <a href={`#@{tag.id}`}>
-            {name}
-          </a>
-            </li>
-                ))}
-</ul>
-
-</motion.section>
-
-
-
-        </section>
-}
+export default function Project({
+  title,
+  description,
+  tags,
+  imageUrl,
+}: ProjectProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 1", "1.33 1"],
+  });
+  const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
   return (
-<section>
-<h1 className='justify-center text-center sm:w-[800px] w-[300px]  pt-10 font-bold text-red-gradient  text-[30px] pb-10'>
-My Projects
-</h1>
-<div>
-  {mutableProjectsData.map((project, index) => (
-    <Project key={index} {...project} />
-  ))}
-</div>
-</section>
-  )
-}
+    <motion.div
+      ref={ref}
+      style={{
+        scale: scaleProgess,
+        opacity: opacityProgess,
+      }}
+      className="group mb-3 sm:mb-8 last:mb-0"
+    >
+      <section className="bg-gray-100 max-w-[42rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 relative sm:h-[20rem] hover:bg-gray-200 transition sm:group-even:pl-8 dark:text-white dark:bg-white/10 dark:hover:bg-white/20">
+        <div className="pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem]">
+          <h3 className="text-2xl font-semibold">{title}</h3>
+          <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70">
+            {description}
+          </p>
+          <ul className="flex flex-wrap mt-4 gap-2 sm:mt-auto">
+            {tags.map((tag, index) => (
+              <li
+                className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70"
+                key={index}
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-export default Projects
+        <Image
+          src={imageUrl}
+          alt="Project I worked on"
+          quality={95}
+          className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl
+        transition 
+        group-hover:scale-[1.04]
+        group-hover:-translate-x-3
+        group-hover:translate-y-3
+        group-hover:-rotate-2
+
+        group-even:group-hover:translate-x-3
+        group-even:group-hover:translate-y-3
+        group-even:group-hover:rotate-2
+
+        group-even:right-[initial] group-even:-left-40"
+        />
+      </section>
+    </motion.div>
+  );
+}
