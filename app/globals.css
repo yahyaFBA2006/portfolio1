@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+  .bg-blue-gradient {
+    background: linear-gradient(
+      157.81deg,
+      #fadede -43.27%,
+      #ffead2 -21.24%,
+      #ffe5e5 12.19%,
+      #d1ffed 29.82%,
+      #fff4b8 51.94%,
+      #e0fffa 90.29%
+    );
+}
+
+.bg-green-gradient {
+  background: linear-gradient(
+    157.81deg,
+    #e0ffdc -43.27%,
+    #ffffe2 -21.24%,
+    #eefff8 12.19%,
+    #eff9ff 29.82%,
+    #ffffea 51.94%,
+    #f5fffd 90.29%
+  );
+}
+.text-red-gradient {
+  background: radial-gradient(
+    64.18% 64.18% at 71.16% 35.69%,
+    #fdffa4 -43.27%,
+    #ffbe82 -21.24%,
+    #ff9a5f 12.19%,
+    #eb6a43 29.82%,
+    #f85524 51.94%,
+    #00ffff 90.29%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.text-title-gradient {
+  background: radial-gradient(
+    64.18% 64.18% at 71.16% 35.69%,
+    #fdffa4 -43.27%,
+    #ff0000 -21.24%,
+    #00ff9d 12.19%,
+    #ff0000 29.82%,
+    #00fff2 51.94%,
+    #fd0000 90.29%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.text-paragraph-gradient {
+  background: radial-gradient(
+    64.18% 64.18% at 71.16% 35.69%,
+    #fdffa4 -43.27%,
+    #2600ff -21.24%,
+    #0044ff 12.19%,
+    #ff018d 29.82%,
+    #006eff 51.94%,
+    #ff0295 90.29%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.bg-line-gradient {
+  background: linear-gradient(
+    157.81deg,
+    #f7c3c3 -43.27%,
+    #ffdab0 -21.24%,
+    #ffb9b9 12.19%,
+    #b4fadf 29.82%,
+    #fff2a9 51.94%,
+    #a4f5e7 90.29%
+  )}
