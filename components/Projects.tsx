@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 import { useScroll } from 'framer-motion'
 const Projects = () => {
 
-    function Project ({title,description,tags,imageUrl,} : ProjectProps)   
+    function Project ({title,description,tags,imageUrl})   
     {
       const ref =useRef<HTMLElement>(null);
 const {scrollYProgress} = useScroll ({
@@ -29,11 +29,11 @@ return <section id='Projects'  className="scroll-m-64">
 <p className='text-gray-700 font-semibold text-[16px] w-[300px]'>
     {description}
 </p>
-<Image src={imageUrl} quality={80} className='w-[130px] h-[100px] rounded-t-lg group-hover:-translate-x-28  transition duration-500 sm:block hidden' />
+<img src={imageUrl}  className='w-[130px] h-[100px] rounded-t-lg group-hover:-translate-x-28  transition duration-500 sm:block hidden' />
 </div>
 </div>
 <ul className='  flex flex-row '>
-    {tags.map((tag, index) =>(
+    {tags.map((tag) =>(
         <li key={tag}  className='text-white  font-bold text-[20px] bg-black/[0.7] rounded-full  p-2 m-2 '>
           <a href={`#@{tag.id}`}>
             {tag}
@@ -54,13 +54,13 @@ return <section id='Projects'  className="scroll-m-64">
 </p>
 
 
-<Image src={imageUrl} quality={90} className='w-[100px] h-[80px]  relative justify-center ml-[114px] mt-6 mb-6  focuse:scale-150 group-hover:scale-150 transition duration-300n ' />
+<img src={imageUrl}  className='w-[100px] h-[80px]  relative justify-center ml-[114px] mt-6 mb-6  focuse:scale-150 group-hover:scale-150 transition duration-300n ' />
 
 <ul className='  flex flex-row gap-2  justify-center pb-4'>
-    {tags.map((tag, index) =>(
-        <li key={tag}  className=' bg-slate-900 p-2 rounded-full text-white font-bold justify-center text-center'>
+    {tags.map((name) =>(
+        <li key={name}  className=' bg-slate-900 p-2 rounded-full text-white font-bold justify-center text-center'>
           <a href={`#@{tag.id}`}>
-            {tag}
+            {name}
           </a>
             </li>
                 ))}
