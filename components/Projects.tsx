@@ -14,7 +14,8 @@ import { useScroll } from 'framer-motion'
 
 const mutableProjectsData = projectsData.map((project) => ({
   ...project,
-  tags: [...project.tags], // Convert to mutable array
+  tags: [...project.tags],
+  image: project.image.src, // Reference the src property
 }));
 
 const Projects = () => {
@@ -66,7 +67,7 @@ return <section id='Projects'  className="scroll-m-64">
 </p>
 
 
-<img src={image}  className='w-[100px] h-[80px]  relative justify-center ml-[114px] mt-6 mb-6  focuse:scale-150 group-hover:scale-150 transition duration-300n ' />
+<img src={image} alt={title} className='w-[130px] h-[100px] rounded-t-lg group-hover:-translate-x-28  transition duration-500 sm:block hidden' />
 
 <ul className='  flex flex-row gap-2  justify-center pb-4'>
     {tags.map((name) =>(
