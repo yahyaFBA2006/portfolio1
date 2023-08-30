@@ -57,7 +57,7 @@ return <section id='Projects'  className="scroll-m-64">
         </section>
 
 
-<motion.section ref={ref}  style={{scale:scrollYProgress, opacity:scrollYProgress}} className='sm:hidden bg-slate-300 justify-center mb-8 focuse:scale-110 hover:scale-110 rounded-2xl  group transition duration-700 w-[360px]  '>
+<motion.section ref={ref}  style={{scale:scrollYProgress, opacity:scrollYProgress}} className=' text-center sm:hidden bg-slate-100 justify-center mb-8 focuse:scale-110 hover:scale-110 rounded-2xl  group transition duration-700 w-[360px]  '>
 
 <h1 className='text-gray-950 mb-4 font-bold text-[20px] justify-center text-center pt-4 '>
     {title}
