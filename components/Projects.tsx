@@ -1,5 +1,10 @@
 'use client'
-
+interface ProjectProps {
+  title: string;
+  description: string;
+  tags: string[];
+  imageUrl: string;
+}
 import React, { useRef } from 'react'
 import {projectsData } from '@/lib/data'
 import Image from 'next/image'
@@ -7,7 +12,7 @@ import { motion } from 'framer-motion'
 import { useScroll } from 'framer-motion'
 const Projects = () => {
 
-    function Project ({title,description,tags,imageUrl})   
+    function Project ({title,description,tags,imageUrl,} : ProjectProps)   
     {
       const ref =useRef<HTMLElement>(null);
 const {scrollYProgress} = useScroll ({
