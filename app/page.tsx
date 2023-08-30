@@ -2,9 +2,8 @@
 
 import Intro from "@/components/Intro"
 import About from "@/components/About"
-import Project from "@/components/Project"
- import Skills
-  from "@/components/Skills"
+ import Skills from "@/components/Skills"
+import Projects from '@/components/Project'
 import Experience from "@/components/Experience"
 import Contact from "@/components/Contact"
 export default function Home() {
@@ -14,9 +13,10 @@ export default function Home() {
 <Intro/>
 <About/>
 <Skills/>
+<Projects/>
 <Experience/>
 <Contact/>
-<Project/>
+
     </main>
   )
 }
