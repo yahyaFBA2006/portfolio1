@@ -62,10 +62,9 @@ transition={{duration:1, deplay:0.5}}
           required
           maxLength={5000}
         />
-        <button type="Submit" className="bg-gray-900 p-4 rounded-full w-[8rem] h-[3rem] flex gap-2 text-white text-bold focus:scale-100 hover:scale-100  ">
+        <button className="bg-gray-900 p-4 rounded-full w-[8rem] h-[3rem] flex gap-2 text-white text-bold focus:scale-100 hover:scale-100  ">
 Sbmit <FaPaperPlane/>
             </button>
-       
       </form>
 
       </motion.div>
